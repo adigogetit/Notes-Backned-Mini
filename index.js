@@ -1,7 +1,13 @@
 const express = require('express');
-const path = require('node:path');
+const path = require("path");
 const app = express();
 const fs = require("fs"); 
+
+const filesDir = path.join(__dirname, "files");
+
+if (!fs.existsSync(filesDir)) {
+  fs.mkdirSync(filesDir);
+}
 
 
 app.set("view engine", "ejs");
